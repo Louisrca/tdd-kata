@@ -1,6 +1,6 @@
 import type { Card, CARDS } from "./card.ts";
 
-const HAND_CATEGORIES = {
+export const HAND_CATEGORIES = {
   QuinteFlush: 9,
   Carre: 8,
   FullHouse: 7,
