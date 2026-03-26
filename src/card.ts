@@ -1,4 +1,4 @@
-const CARDS = {
+export const CARDS = {
   "AS-trefles": 14,
   "2-trefles": 2,
   "3-trefles": 3,
@@ -56,9 +56,9 @@ const CARDS = {
   "K-piques": 13,
 } as const;
 
-export type Card = typeof CARDS;
+export type Card = keyof typeof CARDS;
 
-function splitValue(value: keyof Card): { value: string; color: string } {
+function splitValue(value: Card): { value: string; color: string } {
   const [cardValue, color] = value.split("-");
 
   if (!cardValue || !color) {
@@ -78,6 +78,6 @@ function shuffle(cards: Card[]): Card {
   return randomCard;
 }
 
-export function card(card: keyof Card): { value: string; color: string } {
+export function card(card: Card): { value: string; color: string } {
   return splitValue(card);
 }
